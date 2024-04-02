@@ -81,21 +81,7 @@ public class MainActivityTest {
                         isDisplayed()));
         editText2.check(matches(withText("�����")));
     }
-    public void FindMissingLowerLetter(){
-        //find the view
-        ViewInteraction AppcompactEditText= onView(withId(R.id.passwordEditText));
-        //type the password RAJAT@1234
-        AppcompactEditText.perform(replaceText("RAJAT@1234"));
-        //find the Button
-        ViewInteraction button= onView(withId(R.id.checkButton));
-        //click the Button
-        button.perform(click());
 
-        //find the TextView
-        ViewInteraction textview =onView(withId(R.id.textView));
-        //check the text
-        textview.check(matches(withText("You Shall not Pass")));
-    }
 
     public void FindMissingNumber(){
         //find the view
