@@ -82,6 +82,37 @@ public class MainActivityTest {
         editText2.check(matches(withText("�����")));
     }
 
+    public void FindMissingLowerLetter(){
+        //find the view
+        ViewInteraction AppcompactEditText= onView(withId(R.id.passwordEditText));
+        //type the password RAJAT@1234
+        AppcompactEditText.perform(replaceText("RAJAT@1234"));
+        //find the Button
+        ViewInteraction button= onView(withId(R.id.checkButton));
+        //click the Button
+        button.perform(click());
+
+        //find the TextView
+        ViewInteraction textview =onView(withId(R.id.textView));
+        //check the text
+        textview.check(matches(withText("You Shall not Pass")));
+    }
+    public void FindMissingNumber(){
+        //find the view
+        ViewInteraction appcompactEditText= onView(withId(R.id.passwordEditText));
+        //type the password Manjot@#
+        appcompactEditText.perform(replaceText("Manjot@#"));
+        //find the Button
+        ViewInteraction button= onView(withId(R.id.checkButton));
+        //click the Button
+        button.perform(click());
+
+        //find the TextView
+        ViewInteraction textview =onView(withId(R.id.textView));
+        //check the text
+        textview.check(matches(withText("You Shall not Pass")));
+    }
+
     private static Matcher<View> childAtPosition(
             final Matcher<View> parentMatcher, final int position) {
 
